@@ -3,11 +3,6 @@ var request = require('supertest');
 var app     = require('../lib/app').app;
 var assert  = require('assert');
 
-var trello = express();
-trello.use(express.bodyParser());
-
-trello.listen(3001);
-
 describe('GET /', function() {
     it('should render the form', function(done) {
         request(app)
@@ -16,6 +11,11 @@ describe('GET /', function() {
             .expect(200, done);
     });
 });
+
+app.set('host', 'http://localhost:3001');
+app.set('token', 'mytoken');
+app.set('key', 'mykey');
+app.set('idList', 'myIdList');
 
 describe('POST /', function() {
     it('should fail without good parameters', function(done) {
@@ -26,16 +26,16 @@ describe('POST /', function() {
     });
 
     it('should post the result to the trello board', function(done) {
-        app.set('host', 'http://localhost:3001');
-        app.set('token', 'mytoken');
-        app.set('key', 'mykey');
-        app.set('idList', 'myIdList');
+        var trello = express();
+        trello.use(express.bodyParser());
+        var server = trello.listen(3001);
         trello.post('/1/cards', function(req, res) {
             assert.equal(req.query.key, 'mykey');
             assert.equal(req.query.token, 'mytoken');
             assert.equal(req.body.name, 'A new talk');
             assert.equal(req.body.desc, "The abstract\n\n**François francois@2metz.fr**");
             assert.equal(req.body.idList, 'myIdList');
+            server.close();
             done();
         });
         request(app)
@@ -44,6 +44,52 @@ describe('POST /', function() {
             .send({title: 'A new talk'})
             .send({abstract: 'The abstract'})
             .send({author: 'François francois@2metz.fr'})
+            .expect(201)
+            .end(function() {});
+    });
+
+    it('should set the label blue for long talk', function(done) {
+        var trello = express();
+        trello.use(express.bodyParser());
+        var server = trello.listen(3001);
+        trello.post('/1/cards', function(req, res) {
+            res.json({id: 'newcard'});
+        });
+        trello.post('/1/cards/newcard/labels', function(req, res) {
+            assert.equal(req.body.value, 'blue');
+            server.close();
+            done();
+        });
+        request(app)
+            .post('/')
+            .type('form')
+            .send({title: 'A new talk'})
+            .send({abstract: 'The abstract'})
+            .send({author: 'François francois@2metz.fr'})
+            .send({type: 'long'})
+            .expect(201)
+            .end(function() {});
+    });
+
+    it('should set the label yellow for short talk', function(done) {
+        var trello = express();
+        trello.use(express.bodyParser());
+        var server = trello.listen(3001);
+        trello.post('/1/cards', function(req, res) {
+            res.json({id: 'newcard'});
+        });
+        trello.post('/1/cards/newcard/labels', function(req, res) {
+            assert.equal(req.body.value, 'yellow');
+            server.close();
+            done();
+        });
+        request(app)
+            .post('/')
+            .type('form')
+            .send({title: 'A new talk'})
+            .send({abstract: 'The abstract'})
+            .send({author: 'François francois@2metz.fr'})
+            .send({type: 'short'})
             .expect(201)
             .end(function() {});
     });

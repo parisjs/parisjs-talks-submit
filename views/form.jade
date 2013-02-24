@@ -15,4 +15,10 @@ block body
     label Votre nom + email
     input(name="author", placeholder='François francois@example.org')
 
+    label Durée de la présentation
+    p Une présentation longue dure 20min + 5min de questions, Lightning Talk (présentation éclair) dure 5min chrono
+    select(name="type")
+      option(value="long") Longue
+      option(value="short") Short
+
     input(type="submit", value="Envoyer")

@@ -1,6 +1,6 @@
 # Paris.js talks submission
 
-Render a form to post a new talk for paris.js meetup, and save it on Trello.
+Render a form to post a new talk for paris.js meetups, and save it on Trello.
 
 ## Install
 
