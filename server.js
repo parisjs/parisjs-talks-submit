@@ -13,6 +13,6 @@ Object.keys(config).forEach(function(key) {
     app.set(key, config[key]);
 });
 
-app.listen(3000, function() {
-    console.log('listening on http://localhost:3000');
+app.listen(8080, function() {
+    console.log('listening on http://localhost:8080');
 });

@@ -46,6 +46,13 @@ Returns 201.
 
     npm test
 
+## Dotcloud deploy
+
+Everything is ready to deploy it on dotcloud.
+
+    dotcloud create myapp
+    dotcloud push
+
 ## License
 
             DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
