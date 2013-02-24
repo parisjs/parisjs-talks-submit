@@ -1,8 +1,24 @@
 # Paris.js talks submission
 
-Render a form to post a new talk for paris.js meetup.
+Render a form to post a new talk for paris.js meetup, and save it on Trello.
 
-It post the talk to https://trello.com/board/talks/4f7d53a2cbcb1a6878c92c2e.
+## Install
+
+    npm install
+
+## Configuration
+
+    cp config.json.{sample,}
+    $EDITOR config.json
+
+* host - by default https://api.trello.com
+* token - the oauth token from Trello
+* key - the oauth app key from Trello
+* idList - the id of the Trello list
+
+## Usage
+
+    node server.js
 
 ## API
 
@@ -10,6 +26,7 @@ It post the talk to https://trello.com/board/talks/4f7d53a2cbcb1a6878c92c2e.
 
     GET /
 
+Returns 200.
 
 ### Post the form and save to Trello
 
@@ -22,6 +39,12 @@ Parameters:
 * author - the author : Author <email>
 * type - the type of the talk (long or short)
 * note - additional notes
+
+Returns 201.
+
+## Tests
+
+    npm test
 
 ## License
 
