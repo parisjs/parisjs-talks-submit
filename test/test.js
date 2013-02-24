@@ -93,4 +93,43 @@ describe('POST /', function() {
             .expect(201)
             .end(function() {});
     });
+
+    it('should fail when the trello API returns an error', function(done) {
+        var trello = express();
+        trello.use(express.bodyParser());
+        var server = trello.listen(3001);
+        trello.post('/1/cards', function(req, res) {
+            res.send(400);
+            server.close();
+        });
+        request(app)
+            .post('/')
+            .type('form')
+            .send({title: 'A new talk'})
+            .end(function(err, res) {
+                assert.equal(res.status, 500);
+                done();
+            });
+    });
+    it('should fail when the trello API returns an error on label', function(done) {
+        var trello = express();
+        trello.use(express.bodyParser());
+        var server = trello.listen(3001);
+        trello.post('/1/cards', function(req, res) {
+            res.json({id: 'newcard'});
+        });
+        trello.post('/1/cards/newcard/labels', function(req, res) {
+            res.send(500);
+            server.close();
+        });
+        request(app)
+            .post('/')
+            .type('form')
+            .send({title: 'A new talk'})
+            .send({type: 'short'})
+            .end(function(err, res) {
+                assert.equal(res.status, 500);
+                     done();
+            });
+    });
 });
