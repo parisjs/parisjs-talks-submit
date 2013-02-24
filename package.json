@@ -1,0 +1,22 @@
+{
+  "name": "parisjs-talks-submit",
+  "description": "",
+  "version": "0.0.1",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/parisjs/.git"
+  },
+  "author": "François de Metz",
+  "license": "WTPL",
+  "dependencies": {
+    "express": "3.x",
+    "superagent": "0.12.x",
+    "jade": "0.28.x"
+  },
+  "devDependencies": {
+    "supertest": "0.5.x"
+  }
+}

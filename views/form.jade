@@ -1,0 +1,16 @@
+extends layout
+
+block head
+   title Proposition de présentation ParisJS
+
+block body
+  h1 Proposition de présentation ParisJS
+  form(method='post', action='/')
+    label Title
+    input(name="title")
+  
+    label Résumé
+    textarea(name="abstract")
+  
+    label Votre nom + email
+    input(name="author", placeholder='François francois@example.org')
