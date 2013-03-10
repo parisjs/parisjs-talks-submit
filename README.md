@@ -8,7 +8,7 @@ Render a form to post a new talk for paris.js meetups, and save it on Trello.
 
 ## Configuration
 
-    cp config.json.{sample,}
+    cp config.json{.sample,}
     $EDITOR config.json
 
 * host - by default https://api.trello.com
