@@ -4,6 +4,8 @@ Render a form to post a new talk for paris.js meetups, and save it on Trello.
 
 ## Install
 
+    git clone https://github.com/parisjs/parisjs-talks-submit.git
+    cd parisjs-talks-submit
     npm install
 
 ## Configuration
@@ -12,8 +14,8 @@ Render a form to post a new talk for paris.js meetups, and save it on Trello.
     $EDITOR config.json
 
 * host - by default https://api.trello.com
-* token - the oauth token from Trello
-* key - the oauth app key from Trello
+* key - the oauth app key from Trello (https://trello.com/1/appKey/generate)
+* token - the oauth token from Trello (https://trello.com/1/authorize?key=THEKEY&name=ParisjsTrello&expiration=never&response_type=token&scope=read,write)
 * idList - the id of the Trello list
 
 ## Usage
@@ -38,7 +40,7 @@ Parameters:
 * abstract - a small abstract of the talk (can be some markdown)
 * author - the author : Author <email>
 * type - the type of the talk (long or short)
-* note - additional notes
+* note - additional notes (*not yet implemented*)
 
 Returns 201.
 
