@@ -3,7 +3,8 @@
   "description": "",
   "version": "0.0.1",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -18,5 +19,9 @@
   },
   "devDependencies": {
     "supertest": "0.5.x"
+  },
+  "subdomain": "parisjstalks",
+  "engines": {
+    "node": "0.8.x"
   }
 }
