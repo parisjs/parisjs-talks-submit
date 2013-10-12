@@ -48,12 +48,11 @@ Returns 201.
 
     npm test
 
-## Dotcloud deploy
+## Nodejitsu deploy
 
-Everything is ready to deploy it on dotcloud.
+Everything is ready to deploy it on nodejitsu.
 
-    dotcloud create myapp
-    dotcloud push
+    jitsu deploy
 
 ## License
 
