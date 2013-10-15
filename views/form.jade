@@ -24,5 +24,12 @@ block body
         option(value="long") Longue
         option(value="short") Lightning Talk
 
+      label(for="public") Niveau de la présentation
+      span.help-block Si votre talk cible un public particulier ?
+      select#type(name="public")
+        option(value="public") Tout public
+        option(value="noob") Débutant (I will help you start)
+        option(value="advanced") Avancé (How to do it well)
+  
       br
       input.btn.btn-primary(type="submit", value="Envoyer")
