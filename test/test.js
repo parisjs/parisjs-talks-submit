@@ -35,28 +35,7 @@ describe('POST /', function() {
             assert.equal(req.body.name, 'A new talk');
             assert.equal(req.body.desc, "The abstract\n\n**François francois@2metz.fr**");
             assert.equal(req.body.idList, 'myIdList');
-            server.close();
-            done();
-        });
-        request(app)
-            .post('/')
-            .type('form')
-            .send({title: 'A new talk'})
-            .send({abstract: 'The abstract'})
-            .send({author: 'François francois@2metz.fr'})
-            .expect(201)
-            .end(function() {});
-    });
-
-    it('should set the label blue for long talk', function(done) {
-        var trello = express();
-        trello.use(express.bodyParser());
-        var server = trello.listen(3001);
-        trello.post('/1/cards', function(req, res) {
-            res.json({id: 'newcard'});
-        });
-        trello.post('/1/cards/newcard/labels', function(req, res) {
-            assert.equal(req.body.value, 'blue');
+            assert.equal(req.body.labels, 'blue');
             server.close();
             done();
         });
@@ -76,10 +55,7 @@ describe('POST /', function() {
         trello.use(express.bodyParser());
         var server = trello.listen(3001);
         trello.post('/1/cards', function(req, res) {
-            res.json({id: 'newcard'});
-        });
-        trello.post('/1/cards/newcard/labels', function(req, res) {
-            assert.equal(req.body.value, 'yellow');
+            assert.equal(req.body.labels, 'yellow');
             server.close();
             done();
         });
@@ -109,27 +85,6 @@ describe('POST /', function() {
             .end(function(err, res) {
                 assert.equal(res.status, 500);
                 done();
-            });
-    });
-    it('should fail when the trello API returns an error on label', function(done) {
-        var trello = express();
-        trello.use(express.bodyParser());
-        var server = trello.listen(3001);
-        trello.post('/1/cards', function(req, res) {
-            res.json({id: 'newcard'});
-        });
-        trello.post('/1/cards/newcard/labels', function(req, res) {
-            res.send(500);
-            server.close();
-        });
-        request(app)
-            .post('/')
-            .type('form')
-            .send({title: 'A new talk'})
-            .send({type: 'short'})
-            .end(function(err, res) {
-                assert.equal(res.status, 500);
-                     done();
             });
     });
 });
