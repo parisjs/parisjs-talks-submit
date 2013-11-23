@@ -23,6 +23,13 @@ block body
       select#type(name="type")
         option(value="long") Longue
         option(value="short") Lightning Talk
-
+      
+      label(for="type") Niveau de la présentation
+      span.help-block Si votre publication cible un public particulier ?
+      select#type(name="type")
+        option(value="public") Tout public
+        option(value="noob") Débutant (I will help you start)
+        option(value="advanced") Advanced (How to do it well)
+      
       br
       input.btn.btn-primary(type="submit", value="Envoyer")
