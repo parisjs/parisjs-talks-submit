@@ -2,5 +2,6 @@
   "host": "https://api.trello.com",
   "token": "",
   "key": "",
-  "idList": ""
+  "idList": "",
+  "idListSponsoring": ""
 }
