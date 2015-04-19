@@ -40,7 +40,6 @@ Parameters:
 * abstract - a small abstract of the talk (can be some markdown)
 * author - the author : Author <email>
 * type - the type of the talk (long or short)
-* note - additional notes (*not yet implemented*)
 
 Returns 201.
 
