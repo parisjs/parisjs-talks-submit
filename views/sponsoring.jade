@@ -20,13 +20,13 @@ block body
       label Types de sponsoring (choix multiple) :
       div.checkbox
         label.checkbox
-          input#lieu(name="type", value="lieu", type="checkbox", checked=false)
+          input#lieu(name="type[]", value="lieu", type="checkbox", checked=false)
           | Lieu
         label.checkbox
-          input#buffet(name="type", value="buffet", type="checkbox", checked=false)
+          input#buffet(name="type[]", value="buffet", type="checkbox", checked=false)
           | Buffet
         label.checkbox
-          input#boisson(name="type", value="boisson", type="checkbox", checked=false)
+          input#boisson(name="type[]", value="boisson", type="checkbox", checked=false)
           | Boisson
 
       br
