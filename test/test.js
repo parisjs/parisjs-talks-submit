@@ -15,7 +15,7 @@ describe('GET /', function() {
 app.set('host', 'http://localhost:3001');
 app.set('token', 'mytoken');
 app.set('key', 'mykey');
-app.set('idList', 'myIdList');
+app.set('idListTalk', 'myIdList');
 app.set('idListSponsoring', 'mySponsoringIdList');
 
 describe('POST /', function() {

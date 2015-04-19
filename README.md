@@ -16,7 +16,8 @@ Render a form to post a new talk for paris.js meetups, and save it on Trello.
 * host - by default https://api.trello.com
 * key - the oauth app key from Trello (https://trello.com/1/appKey/generate)
 * token - the oauth token from Trello (https://trello.com/1/authorize?key=THEKEY&name=ParisjsTrello&expiration=never&response_type=token&scope=read,write)
-* idList - the id of the Trello list
+* idListTalk - the id of the Trello list to post talks
+* idListSponsoring - the id of the Trello list to post sponsoring
 
 ## Usage
 
