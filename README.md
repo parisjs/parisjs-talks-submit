@@ -44,6 +44,23 @@ Parameters:
 
 Returns 201.
 
+### Render sponsoring form
+
+    GET /sponsoring
+
+### Post the form and save to Trello
+
+    POST /sponsoring
+
+Parameters:
+
+* entity - The entity who offer the sponsoring
+* period - when
+* type - type of sponsoring as array
+* contact - contact infos
+
+Returns 201.
+
 ## Tests
 
     npm test
