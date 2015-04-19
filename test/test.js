@@ -2,6 +2,7 @@ var express = require('express');
 var request = require('supertest');
 var app     = require('../lib/app').app;
 var assert  = require('assert');
+var bodyParser = require('body-parser');
 
 describe('GET /', function() {
     it('should render the form', function(done) {
@@ -20,7 +21,7 @@ app.set('idListSponsoring', 'mySponsoringIdList');
 
 var trelloServer = function() {
     var trello = express();
-    trello.use(express.bodyParser());
+    trello.use(bodyParser.json());
     return trello;
 };
 
@@ -83,7 +84,7 @@ describe('POST /', function() {
         var trello = trelloServer();
         var server = trello.listen(3001);
         trello.post('/1/cards', function(req, res) {
-            res.send(400);
+            res.sendStatus(400);
             server.close();
         });
         request(app)
@@ -135,7 +136,7 @@ describe('POST /sponsoring', function() {
         var trello = trelloServer();
         var server = trello.listen(3001);
         trello.post('/1/cards', function(req, res) {
-            res.send(400);
+            res.sendStatus(400);
             server.close();
         });
         request(app)
