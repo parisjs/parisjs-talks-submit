@@ -120,7 +120,7 @@ describe('POST /sponsoring', function() {
             .post('/sponsoring')
             .type('form')
             .send({
-                entite: '2metz Inc.',
+                entity: '2metz Inc.',
                 contact: 'François francois@2metz.fr',
                 period: 'never',
                 type: [ 'lieu', 'buffet' ]
