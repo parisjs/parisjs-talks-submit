@@ -18,6 +18,12 @@ app.set('key', 'mykey');
 app.set('idListTalk', 'myIdList');
 app.set('idListSponsoring', 'mySponsoringIdList');
 
+var trelloServer = function() {
+    var trello = express();
+    trello.use(express.bodyParser());
+    return trello;
+};
+
 describe('POST /', function() {
     it('should fail without good parameters', function(done) {
         request(app)
@@ -27,8 +33,7 @@ describe('POST /', function() {
     });
 
     it('should post the result to the trello board', function(done) {
-        var trello = express();
-        trello.use(express.bodyParser());
+        var trello = trelloServer()
         var server = trello.listen(3001);
         trello.post('/1/cards', function(req, res) {
             assert.equal(req.query.key, 'mykey');
@@ -54,8 +59,7 @@ describe('POST /', function() {
     });
 
     it('should set the label yellow for short talk', function(done) {
-        var trello = express();
-        trello.use(express.bodyParser());
+        var trello = trelloServer();
         var server = trello.listen(3001);
         trello.post('/1/cards', function(req, res) {
             assert.equal(req.body.labels, 'yellow');
@@ -76,8 +80,7 @@ describe('POST /', function() {
     });
 
     it('should fail when the trello API returns an error', function(done) {
-        var trello = express();
-        trello.use(express.bodyParser());
+        var trello = trelloServer();
         var server = trello.listen(3001);
         trello.post('/1/cards', function(req, res) {
             res.send(400);
@@ -103,8 +106,7 @@ describe('POST /sponsoring', function() {
     });
 
     it('should post the result to the trello board', function(done) {
-        var trello = express();
-        trello.use(express.bodyParser());
+        var trello = trelloServer();
         var server = trello.listen(3001);
         trello.post('/1/cards', function(req, res) {
             assert.equal(req.query.key, 'mykey');
@@ -130,8 +132,7 @@ describe('POST /sponsoring', function() {
     });
 
     it('should fail when the trello API returns an error', function(done) {
-        var trello = express();
-        trello.use(express.bodyParser());
+        var trello = trelloServer();
         var server = trello.listen(3001);
         trello.post('/1/cards', function(req, res) {
             res.send(400);
