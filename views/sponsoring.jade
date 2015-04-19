@@ -1,0 +1,33 @@
+extends layout
+
+block prepend head
+   title Proposition de sponsoring pour Paris.js
+
+block body
+  .container
+    h1 Proposition de sponsoring pour Paris.js
+    form(method='post', action='/sponsoring')
+      label(for="entite") Entité (nom de la personne, école, entreprise, etc...) :
+      input#entite.input-xxlarge(type="text", name="entite", placeholder='Example Inc.')
+
+      label(for="contact") Nom (si différent) + email de contact :
+      input#contact.input-xxlarge(type="text", name="contact", placeholder='François francois@example.org')
+
+      label(for="title") Mois ou période souhaité :
+      span.help-block NB : Paris.js est organisé tous les derniers mercredis du mois.
+      input#title.input-xxlarge(type="text", name="period")
+
+      label Types de sponsoring (choix multiple) :
+      div.checkbox
+        label.checkbox
+          input#lieu(name="type", value="lieu", type="checkbox", checked=false)
+          | Lieu
+        label.checkbox
+          input#buffet(name="type", value="buffet", type="checkbox", checked=false)
+          | Buffet
+        label.checkbox
+          input#boisson(name="type", value="boisson", type="checkbox", checked=false)
+          | Boisson
+
+      br
+      input.btn.btn-primary(type="submit", value="Envoyer")
