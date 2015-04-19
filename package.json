@@ -14,8 +14,8 @@
   "license": "WTPL",
   "dependencies": {
     "express": "3.x",
-    "superagent": "0.12.x",
-    "jade": "0.28.x"
+    "jade": "^1.9.2",
+    "superagent": "0.12.x"
   },
   "devDependencies": {
     "supertest": "0.5.x"
