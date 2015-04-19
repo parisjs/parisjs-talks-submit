@@ -76,7 +76,7 @@ Everything is ready to deploy it on nodejitsu.
             DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
                     Version 2, December 2004
 
-    Copyright (C) 2013 François de Metz <francois@2metz.fr>
+    Copyright (C) 2015 François de Metz <francois@2metz.fr>
 
     Everyone is permitted to copy and distribute verbatim or modified
     copies of this license document, and changing it is allowed as long
