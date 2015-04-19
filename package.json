@@ -15,10 +15,10 @@
   "dependencies": {
     "express": "3.x",
     "jade": "^1.9.2",
-    "superagent": "0.12.x"
+    "superagent": "^1.2.0"
   },
   "devDependencies": {
-    "supertest": "0.5.x"
+    "supertest": "^0.15.0"
   },
   "subdomain": "parisjstalks",
   "engines": {
