@@ -6,6 +6,8 @@ block prepend head
 block body
   .container
     h1 Proposition de sponsoring pour Paris.js
+    p Pour plus d'infos sur le sponsoring, 
+      a(href='https://github.com/parisjs/parisjs-website/wiki/Be-a-ParisJS-Host') voir cette page
     form(method='post', action='/sponsoring')
       label(for="entity") Entité (nom de la personne, école, entreprise, etc...) :
       input#entity.input-xxlarge(type="text", name="entity", placeholder='Example Inc.')
