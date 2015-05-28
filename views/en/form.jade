@@ -1,0 +1,28 @@
+extends layout
+
+block prepend head
+   title Talk Proposition for Paris.js
+
+block body
+  .container
+    h1 Talk Proposition for Paris.js
+    form(method='post', action='/')
+      label(for="title") Talk Title
+      input#title.input-xxlarge(type="text", name="title")
+
+      label(for="abstract") Summary
+      span.help-block A brief for your presentation, in 10 lines or less. The talk selection is made from these briefs.
+      textarea#abstract.input-xxlarge(name="abstract", rows="7")
+
+      label(for="author") Your Name and Email
+      span.help-block We will use your contact information to inform you of the selection of your talk.
+      input#author.input-xxlarge(type="text", name="author", placeholder='François francois@example.org')
+
+      label(for="type") Talk Duration
+      span.help-block Long Talks last for 20min + 5min of questions, Lightning Talks last for 5min only.
+      select#type(name="type")
+        option(value="long") Long Talk
+        option(value="short") Lightning Talk
+
+      br
+      input.btn.btn-primary(type="submit", value="Send")
