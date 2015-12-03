@@ -113,7 +113,7 @@ describe('POST /sponsoring', function() {
             assert.equal(req.query.key, 'mykey');
             assert.equal(req.query.token, 'mytoken');
             assert.equal(req.body.name, '2metz Inc. sponsoring');
-            assert.equal(req.body.desc, "never\n\nlieu + buffet\n\n**François francois@2metz.fr**");
+            assert.equal(req.body.desc, "never\n\nlieu + buffet (places: 30)\n\n**François francois@2metz.fr**");
             assert.equal(req.body.idList, 'mySponsoringIdList');
             assert.equal(req.body.labels, 'red');
             server.close();
@@ -126,7 +126,8 @@ describe('POST /sponsoring', function() {
                 entity: '2metz Inc.',
                 contact: 'François francois@2metz.fr',
                 period: 'never',
-                type: [ 'lieu', 'buffet' ]
+                type: [ 'lieu', 'buffet' ],
+                audience: "30"
             })
             .expect(201)
             .end(function() {});

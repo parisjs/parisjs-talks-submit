@@ -31,5 +31,8 @@ block body
           input#boisson(name="type[]", value="boisson", type="checkbox", checked=false)
           | Boisson
 
+      label(for="audience-count") Nombre de places (si hébergement) :
+      input#audience.input-mini(type="text", name="audience")
+
       br
       input.btn.btn-primary(type="submit", value="Envoyer")
