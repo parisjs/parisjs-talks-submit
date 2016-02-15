@@ -65,12 +65,6 @@ Returns 201.
 
     npm test
 
-## Nodejitsu deploy
-
-Everything is ready to deploy it on nodejitsu.
-
-    jitsu deploy
-
 ## License
 
             DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
