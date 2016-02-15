@@ -1,5 +1,7 @@
-var app  = require('./lib/app').app;
+var app  = require('./lib/app').app,
+    port = process.env.PORT || 8080;
 
-app.listen(8080, function() {
-    console.log('listening on http://localhost:8080');
+
+app.listen(port, function() {
+    console.log('listening on http://localhost:'+ port);
 });
