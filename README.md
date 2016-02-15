@@ -10,17 +10,18 @@ Render forms to post new talks and sponsorship and save them on Trello.
 
 ## Configuration
 
-    cp config.json{.sample,}
-    $EDITOR config.json
+    cp .env{.sample,}
+    $EDITOR .env
 
-* host - by default https://api.trello.com
-* key - the oauth app key from Trello (https://trello.com/1/appKey/generate)
-* token - the oauth token from Trello (https://trello.com/1/authorize?key=THEKEY&name=ParisjsTrello&expiration=never&response_type=token&scope=read,write)
-* idListTalk - the id of the Trello list to post talks
-* idListSponsoring - the id of the Trello list to post sponsoring
+* `TRELLO_HOST` - by default https://api.trello.com
+* `TRELLO_KEY` - the oauth app key from Trello (https://trello.com/1/appKey/generate)
+* `TRELLO_TOKEN` - the oauth token from Trello (https://trello.com/1/authorize?key=THEKEY&name=ParisjsTrello&expiration=never&response_type=token&scope=read,write)
+* `TRELLO_ID_LIST_TALK` - the id of the Trello list to post talks
+* `TRELLO_ID_LIST_SPONSORING` - the id of the Trello list to post sponsoring
 
 ## Usage
 
+    export $(cat .env | xargs)
     node server.js
 
 ## API

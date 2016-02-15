@@ -13,11 +13,11 @@ describe('GET /', function() {
     });
 });
 
-app.set('host', 'http://localhost:3001');
-app.set('token', 'mytoken');
-app.set('key', 'mykey');
-app.set('idListTalk', 'myIdList');
-app.set('idListSponsoring', 'mySponsoringIdList');
+process.env.TRELLO_HOST = 'http://localhost:3001';
+process.env.TRELLO_TOKEN = 'mytoken';
+process.env.TRELLO_KEY = 'mykey';
+process.env.TRELLO_ID_LIST_TALK = 'myIdList';
+process.env.TRELLO_ID_LIST_SPONSORING = 'mySponsoringIdList';
 
 var trelloServer = function() {
     var trello = express();
