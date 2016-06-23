@@ -1,0 +1,23 @@
+extends layout
+
+block prepend head
+   title Idée de sujet pour Paris.js
+
+block body
+  .container
+    h1 Idée de sujet pour Paris.js
+    p Proposez une idée de sujet. Quelqu'un de la communauté en fera un talk.
+    form(method='post', action='/talk-idea')
+      label(for="title") Titre
+      input#title.input-xxlarge(type="text", name="title")
+
+      label(for="abstract") Résumé
+      span.help-block Un résumé de votre idée.
+      textarea#abstract.input-xxlarge(name="abstract", rows="7")
+
+      label(for="author") Votre nom + email (optionnel)
+      span.help-block Si vous souhaitez être prevenu lors de la prise en charge par un speaker
+      input#author.input-xxlarge(type="text", name="author", placeholder='François francois@example.org')
+
+      br
+      input.btn.btn-primary(type="submit", value="Envoyer")
