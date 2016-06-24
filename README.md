@@ -18,6 +18,7 @@ Render forms to post new talks and sponsorship and save them on Trello.
 * `TRELLO_TOKEN` - the oauth token from Trello (https://trello.com/1/authorize?key=THEKEY&name=ParisjsTrello&expiration=never&response_type=token&scope=read,write)
 * `TRELLO_ID_LIST_TALK` - the id of the Trello list to post talks
 * `TRELLO_ID_LIST_SPONSORING` - the id of the Trello list to post sponsoring
+* `TRELLO_ID_LIST_TALK_IDEA` - the id of the Trello list to post talks ideas
 
 ## Usage
 
@@ -61,6 +62,14 @@ Parameters:
 * contact - contact infos
 
 Returns 201.
+
+### Render ideas form
+
+    GET /talk-idea
+
+### Post the idea and save to Trello
+
+    POST /talk-idea
 
 ## Tests
 
